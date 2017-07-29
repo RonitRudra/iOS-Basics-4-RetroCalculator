@@ -71,6 +71,43 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func changeSignPressed(sender : UIButton){
+        playSound()
+        // Add negative sign to number if not present
+        if(runningNumber[runningNumber.startIndex] != "-"){
+            runningNumber = "-" + runningNumber
+            outputLabel.text = runningNumber
+        } else {
+            // replace runningNumber with substring after starting index to end index
+            // ..< from left operand to less than right operand
+            // string.endIndex gives index after last character which will throw an error if used unless stopped before it
+            // NOTE TO SELF: String operations are a pain in swift
+            runningNumber = String(runningNumber[runningNumber.index(after: runningNumber.startIndex)..<runningNumber.endIndex])
+            print(runningNumber)
+            outputLabel.text = runningNumber
+        }
+    }
+    
+    @IBAction func clearPressed(sender : UIButton){
+        playSound()
+        // clear all variables
+        runningNumber = ""
+        leftVal = ""
+        rightVal = ""
+        currentOperation = Operation.Empty
+        outputLabel.text = "0"
+    }
+    
+    @IBAction func reciprocalPressed(sender : UIButton){
+        playSound()
+        // perform reciprocal on non empty number
+        if(runningNumber != ""){
+            print()
+            runningNumber = "\(1/Double(runningNumber)!)"
+            outputLabel.text = runningNumber
+        }
+    }
+    
     @IBAction func dividePressed(sender : Any){
         processOperation(operation: Operation.Divide)
     }
