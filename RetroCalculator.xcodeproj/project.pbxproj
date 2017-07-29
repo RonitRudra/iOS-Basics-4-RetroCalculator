@@ -14,6 +14,7 @@
 		E44E4E6B1F2CFEC5000EA839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44E4E691F2CFEC5000EA839 /* LaunchScreen.storyboard */; };
 		E44E4E761F2CFEC5000EA839 /* RetroCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E4E751F2CFEC5000EA839 /* RetroCalculatorTests.swift */; };
 		E44E4E811F2CFEC5000EA839 /* RetroCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44E4E801F2CFEC5000EA839 /* RetroCalculatorUITests.swift */; };
+		E44E4E8F1F2D16DA000EA839 /* Minecraft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E44E4E8E1F2D16DA000EA839 /* Minecraft.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E44E4E7C1F2CFEC5000EA839 /* RetroCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RetroCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44E4E801F2CFEC5000EA839 /* RetroCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroCalculatorUITests.swift; sourceTree = "<group>"; };
 		E44E4E821F2CFEC5000EA839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E44E4E8E1F2D16DA000EA839 /* Minecraft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Minecraft.ttf; path = ../../../../Downloads/Minecraft.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				E44E4E741F2CFEC5000EA839 /* RetroCalculatorTests */,
 				E44E4E7F1F2CFEC5000EA839 /* RetroCalculatorUITests */,
 				E44E4E5E1F2CFEC5000EA839 /* Products */,
+				E44E4E8E1F2D16DA000EA839 /* Minecraft.ttf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,6 +234,7 @@
 			files = (
 				E44E4E6B1F2CFEC5000EA839 /* LaunchScreen.storyboard in Resources */,
 				E44E4E681F2CFEC5000EA839 /* Assets.xcassets in Resources */,
+				E44E4E8F1F2D16DA000EA839 /* Minecraft.ttf in Resources */,
 				E44E4E661F2CFEC5000EA839 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
