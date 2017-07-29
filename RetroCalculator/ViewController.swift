@@ -15,8 +15,24 @@ class ViewController: UIViewController {
     // create variable of type AVAudioPlayer
     var buttonSound : AVAudioPlayer!
     
+    // Enumeration (KVP) for operations
+    enum Operation : String {
+        case Divide = "/"
+        case Multiply = "*"
+        case Subtract = "-"
+        case Add = "+"
+        case Empty = "Empty"
+    }
+    
     // create running number for display
     var runningNumber = ""
+    
+    // Variable for storing current operation
+    var currentOperation = Operation.Empty
+    
+    var leftVal = ""
+    var rightVal = ""
+    var result = ""
 
     @IBOutlet weak var outputLabel: UILabel!
     
@@ -44,8 +60,8 @@ class ViewController: UIViewController {
         // play buttong sfx
         playSound()
         // append pressed number
-        // Tags>0 are digits, tag=0 is decimal
-        if(sender.tag>0){
+        // Tags>=0 are digits, tag=-1 is decimal
+        if(sender.tag>=0){
             runningNumber += "\(sender.tag)"
             outputLabel.text = runningNumber
         }
@@ -55,11 +71,60 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func dividePressed(sender : Any){
+        processOperation(operation: Operation.Divide)
+    }
+    @IBAction func multiplyPressed(sender : Any){
+        processOperation(operation: Operation.Multiply)
+    }
+    @IBAction func subtractPressed(sender : Any){
+        processOperation(operation: Operation.Subtract)
+    }
+    @IBAction func addPressed(sender : Any){
+        processOperation(operation: Operation.Add)
+    }
+    @IBAction func equalPressed(sender : Any){
+        processOperation(operation: currentOperation)
+    }
+    
     func playSound(){
         if (buttonSound.isPlaying){
             buttonSound.stop()
         }
         buttonSound.play()
+    }
+    
+    func processOperation(operation : Operation){
+        playSound()
+        // We have both left and right operands and the operator
+        if(currentOperation != Operation.Empty){
+            if runningNumber != "" {
+                rightVal = runningNumber
+                runningNumber = ""
+                
+                // perform operation
+                // be sure to unwrap explicitly to avoid errors
+                if(currentOperation == Operation.Divide){
+                    result = "\(Double(leftVal)!/Double(rightVal)!)"
+                } else if(currentOperation == Operation.Multiply){
+                    result = "\(Double(leftVal)!*Double(rightVal)!)"
+                } else if(currentOperation == Operation.Subtract){
+                    result = "\(Double(leftVal)!-Double(rightVal)!)"
+                } else if(currentOperation == Operation.Add){
+                    result = "\(Double(leftVal)!+Double(rightVal)!)"
+                }
+                
+                leftVal = result
+                outputLabel.text = result
+            }
+            
+            currentOperation = operation
+        } else{
+            // no right operand present
+            leftVal = runningNumber
+            runningNumber = ""
+            currentOperation = operation
+        }
     }
 
 }
