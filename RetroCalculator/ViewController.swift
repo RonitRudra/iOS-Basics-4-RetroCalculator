@@ -14,7 +14,12 @@ class ViewController: UIViewController {
     
     // create variable of type AVAudioPlayer
     var buttonSound : AVAudioPlayer!
+    
+    // create running number for display
+    var runningNumber = ""
 
+    @IBOutlet weak var outputLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -36,11 +41,25 @@ class ViewController: UIViewController {
     
     }
     @IBAction func numberPressed(sender : UIButton ){
-        
+        // play buttong sfx
+        playSound()
+        // append pressed number
+        // Tags>0 are digits, tag=0 is decimal
+        if(sender.tag>0){
+            runningNumber += "\(sender.tag)"
+            outputLabel.text = runningNumber
+        }
+        else if(sender.tag == -1){
+            runningNumber += "."
+            outputLabel.text = runningNumber
+        }
     }
     
     func playSound(){
-        
+        if (buttonSound.isPlaying){
+            buttonSound.stop()
+        }
+        buttonSound.play()
     }
 
 }
